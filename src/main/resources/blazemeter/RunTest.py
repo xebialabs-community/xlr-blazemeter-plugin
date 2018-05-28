@@ -11,44 +11,7 @@ import ssl
 import time
 import base64
 
-# Call URL with proper error handling
-def callUrl(verb, url):
-    data = {}
-    base64string = base64.encodestring('%s:%s' % (keyId, secret)).replace('\n', '')
-    context = ssl._create_unverified_context()
-
-    try:
-        if verb == 'post':
-            request = urllib2.Request(url, data)
-        elif verb == 'get':
-            request = urllib2.Request(url)
-        else:
-            print 'HTTP verb error!\n'
-            print 'Reason: Only POST and GET verbs supported.\n'
-            sys.exit(201)
-
-        request.add_header("Authorization", "Basic %s" % base64string)            
-        response = urllib2.urlopen(request, context=context)
-        output = json.loads(response.read())
-
-        return output
-    # Catch all exceptions
-    except urllib2.HTTPError as error:
-        print 'HTTP %s error!\n' % error.code
-        print 'Reason: %s (URL: %s)\n' % (error.msg, url)
-        sys.exit(202)
-    except urllib2.URLError as error:
-        print 'Network error!\n'
-        print 'Reason: %s\n' % error.reason
-        sys.exit(203)
-    except ValueError as error:
-        print 'JSON parsing error!\n'
-        print 'Reason: %s\n' % error.message
-        sys.exit(204)
-    except Exception as error:
-        print 'Uncaught error!\n'
-        print 'Reason: %s\n' % error
-        sys.exit(205)
+from blazemeter.common import (call_url, encode_multipart)
 
 # Initialize variables
 base_url = server.get('url').strip('/')
@@ -57,6 +20,7 @@ data = ''
 master = ''
 project = ''
 account = ''
+headers = {}
 
 # Make sure all the required paramaters are set
 if not base_url.strip():
@@ -82,21 +46,26 @@ if not test.strip():
 if not pollingInterval:
     print 'Input error!\n'
     print 'Reason: Parameter pollingInterval undefined\n'
-    sys.exit(104)
+    sys.exit(105)
+
+print 'BlazeMeter test execution started\n'
+
+# Add authentication headers
+base64string = base64.encodestring('%s:%s' % (keyId, secret)).replace('\n', '')
+headers['Authorization'] = 'Basic %s' % base64string
 
 # Start the test
 start_test_url = '%s/tests/%s/start' % (base_url, test)
-print 'BlazeMeter test %s started\n' % test
-data = callUrl('post', start_test_url)
+data = call_url('post', start_test_url, {}, headers)
 session = data.get('result').get('sessionsId')[0]
 
 # Monitor the progress of the session
-print 'The session was successfully started: %s\n' % session
+print 'The following session was successfully started: %s\n' % session
 session_status_url = '%s/sessions/%s/status' % (base_url, session)
 count = 1
 while True:
     print 'Monitoring session progress #%d\n' % count
-    data = callUrl('get', session_status_url)
+    data = call_url('get', session_status_url, None, headers)
     if data.get('result').get('status') == "ENDED":
         if 'errors' in data.get('result') and data.get('result').get('errors'):
             error = data.get('result').get('errors')[0]
@@ -110,15 +79,13 @@ while True:
 
 # Retrieve the master id from the session
 session_url = '%s/sessions/%s' % (base_url, session)
-print 'Retrieving the master id\n'
-data = callUrl('get', session_url)
+data = call_url('get', session_url, None, headers)
 master = data.get('result').get('masterId')
 project = data.get('result').get('projectId')
 
 # Retrieve the various elements to build a url in order to view the reports
 account_url = '%s/accounts' % base_url
-print 'Retrieving account information\n'
-data = callUrl('get', account_url)
+data = call_url('get', account_url, None, headers)
 result = data.get('result')[0]
 if result and 'id' in result:
     account = result.get('id')
@@ -127,17 +94,16 @@ if result and 'id' in result:
 
 # Review the test report
 master_url = '%s/masters/%s' % (base_url, master)
-data = callUrl('get', master_url)
-if 'passed' in data.get('result') and data.get('result').get('passed') == False:
-    print 'BlazeMeter test %s **failed**\n' % test
+data = call_url('get', master_url, None, headers)
+if 'passed' in data.get('result') and data.get('result').get('passed') == True:
+    print 'BlazeMeter test %s completed **successfully**\n' % test
     print '```'
     print json.dumps(data)
     print '```'
-    sys.exit(1)
+    sys.exit(0)
 
-# Print output
-print 'BlazeMeter test %s completed **successfully**\n' % test
+print 'BlazeMeter test %s **failed**\n' % test
 print '```'
 print json.dumps(data)
 print '```'
-sys.exit(0)
+sys.exit(1)
