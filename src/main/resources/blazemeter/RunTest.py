@@ -95,15 +95,15 @@ if result and 'id' in result:
 # Review the test report
 master_url = '%s/masters/%s' % (base_url, master)
 data = call_url('get', master_url, None, headers)
-if 'passed' in data.get('result') and data.get('result').get('passed') == True:
-    print 'BlazeMeter test %s completed **successfully**\n' % test
+if 'passed' in data.get('result') and data.get('result').get('passed') == False:
+    print 'BlazeMeter test %s **failed**\n' % test
     print '```'
     print json.dumps(data)
     print '```'
-    sys.exit(0)
+    sys.exit(1)
 
-print 'BlazeMeter test %s **failed**\n' % test
+print 'BlazeMeter test %s completed **successfully**\n' % test
 print '```'
 print json.dumps(data)
 print '```'
-sys.exit(1)
+sys.exit(0)
