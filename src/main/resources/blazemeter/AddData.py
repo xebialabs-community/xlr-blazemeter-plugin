@@ -51,15 +51,20 @@ if not testData:
 print 'BlazeMeter test data upload started\n'
 
 # Write the data to a string
-for r in testData:
-    row = literal_eval(r)
-    contents += ','.join(map(str, row)) + '\n'
+try:
+    for r in testData:
+        row = literal_eval(r)
+        contents += ','.join(map(str, row)) + '\n'
+except Exception as error:
+    print 'The test data is in the wrong format!\n'
+    print 'Example: ["(\'Header1\', \'Header2\')", "(\'Value1\', \'Value2\')"]\n'
+    sys.exit(107)
 
 # Encode multipart form data
 files = {'file': {'filename': filename, 'content': contents}}
 url_data, url_headers = encode_multipart({}, files)
 
-# Add authentication headers
+# Add headers
 base64string = base64.encodestring('%s:%s' % (keyId, secret)).replace('\n', '')
 url_headers['Authorization'] = 'Basic %s' % base64string
 

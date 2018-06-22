@@ -17,7 +17,6 @@ from blazemeter.common import (call_url, encode_multipart)
 base_url = server.get('url').strip('/')
 app_url = ''
 data = ''
-master = ''
 project = ''
 account = ''
 headers = {}
@@ -50,9 +49,10 @@ if not pollingInterval:
 
 print 'BlazeMeter test execution started\n'
 
-# Add authentication headers
+# Add headers
 base64string = base64.encodestring('%s:%s' % (keyId, secret)).replace('\n', '')
 headers['Authorization'] = 'Basic %s' % base64string
+headers['Content-Type'] = 'application/json'
 
 # Start the test
 start_test_url = '%s/tests/%s/start' % (base_url, test)
@@ -71,7 +71,7 @@ while True:
             error = data.get('result').get('errors')[0]
             print 'Session %s error!\n' % error.get('code')
             print 'Reason: %s\n' % error.get('message')
-            sys.exit(301)
+            sys.exit(106)
         else:
             break
     count += 1   
@@ -83,6 +83,14 @@ data = call_url('get', session_url, None, headers)
 master = data.get('result').get('masterId')
 project = data.get('result').get('projectId')
 
+# Update the test with a custom note, when available
+master_url = '%s/masters/%s' % (base_url, master)
+if note.strip():
+    note_json = {"note": note}
+    data = call_url('patch', master_url, json.dumps(note_json), headers)
+    if not data.get('error'):
+        print 'Successfully updated the notes for this test\n'
+
 # Retrieve the various elements to build a url in order to view the reports
 account_url = '%s/accounts' % base_url
 data = call_url('get', account_url, None, headers)
@@ -93,7 +101,6 @@ if result and 'id' in result:
     print 'Test report summary URL: %s/app/#/accounts/%s/workspaces/%s/projects/%s/masters/%s/summary\n' % (app_url, account, workspace, project, master)
 
 # Review the test report
-master_url = '%s/masters/%s' % (base_url, master)
 data = call_url('get', master_url, None, headers)
 if 'passed' in data.get('result') and data.get('result').get('passed') == False:
     print 'BlazeMeter test %s **failed**\n' % test
@@ -102,6 +109,7 @@ if 'passed' in data.get('result') and data.get('result').get('passed') == False:
     print '```'
     sys.exit(1)
 
+# If we got this far it means that the test was successful!
 print 'BlazeMeter test %s completed **successfully**\n' % test
 print '```'
 print json.dumps(data)

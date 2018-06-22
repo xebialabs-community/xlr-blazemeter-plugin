@@ -92,19 +92,33 @@ def call_url(verb, url, data, headers):
     """
 
     context = ssl._create_unverified_context()
+    
+    https_handler = urllib2.HTTPSHandler(context=context)
+    opener = urllib2.build_opener(https_handler)
     output = ''
 
     try:
         if verb == 'post':
             request = urllib2.Request(url, data=data, headers=headers)
+            request.get_method = lambda: 'POST'
+        elif verb == 'put':
+            request = urllib2.Request(url, data=data, headers=headers)
+            request.get_method = lambda: 'PUT'
+        elif verb == 'patch':
+            request = urllib2.Request(url, data=data, headers=headers)
+            request.get_method = lambda: 'PATCH'
+        elif verb == 'delete':
+            request = urllib2.Request(url, data=data, headers=headers)
+            request.get_method = lambda: 'DELETE'
         elif verb == 'get':
             request = urllib2.Request(url, headers=headers)
+            request.get_method = lambda: 'GET'
         else:
             print 'HTTP verb error!\n'
-            print 'Reason: Only POST and GET verbs supported.\n'
+            print 'Reason: Only POST, PUT, PATCH, DELETE and GET verbs supported.\n'
             sys.exit(201)
           
-        response = urllib2.urlopen(request, context=context)
+        response = opener.open(request)
         output = json.loads(response.read())
 
     # Catch all exceptions

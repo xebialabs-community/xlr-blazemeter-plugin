@@ -11,7 +11,8 @@
            xmlns="http://www.xebialabs.com/deployit/synthetic"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">        
 
-    <type type="blazemeter.RunTest" extends="xlrelease.PythonScript" description="Run a preconfigured test for a given test">
+    <!-- Run a test -->
+    <type type="blazemeter.RunTest" extends="xlrelease.PythonScript" description="Run a preconfigured test">
 
         <!-- Plugins -->
         <property name="iconLocation" default="blazemeter/blazemeter-logo.png" hidden="true"/>
@@ -24,6 +25,7 @@
         <property name="keyId" category="input" required="true" label="API Key ID" description="The API key id for the user running the test" />
         <property name="secret" category="input" required="true" label="API Key Secret" description="The API key secret for the user running the test" />
         <property name="test" category="input" required="true" label="Test ID" description="The test id of the test case to run" />
+        <property name="note" category="input" required="false" label="Note" description="A note to describe this test run" />
         <property name="pollingInterval" category="input" default="30" required="true" kind="integer"
             description="Polling interval in seconds to check task status" />
 
@@ -31,7 +33,8 @@
         <property name="session" category="output" label="Session ID" description="The session id for this test run" />
     </type>
 
-    <type type="blazemeter.AddData" extends="xlrelease.PythonScript" description="Uploads a data file to a test (applicable to JMeter tests)">
+    <!-- Add test data -->
+    <type type="blazemeter.AddData" extends="xlrelease.PythonScript" description="Upload a data file (only applicable to JMeter tests)">
 
         <!-- Plugins -->
         <property name="iconLocation" default="blazemeter/blazemeter-logo.png" hidden="true"/>
@@ -44,7 +47,7 @@
         <property name="secret" category="input" required="true" label="API Key Secret" description="The API key secret for the user running the test" />
         <property name="test" category="input" required="true" label="Test ID" description="The test id of the test case to run" />
         <property name="testData" category="input" required="true" label="Test Data" kind="list_of_string" 
-            description="The list (one row per item) of test data to add. Note: Use a tuple for comma-separated values" />
+            description="The list (one row per line item) of test data to add. Use a tuple for comma-separated values" />
         <property name="filename" category="input" required="true" label="Filename" description="The filename to use when uploading the test data file" />
     </type>   
 
