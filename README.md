@@ -22,11 +22,11 @@ This module offers a basic interface to BlazeMeter functionality.
 
 ## XL Release Scenario
 
-BlazeMeter markets a commercial, self-service load testing platform as a service (PaaS), which is compatible with open-source Apache JMeter, the performance testing framework from the Apache Software Foundation. BlazeMeter comes with a well documented API layer with integration into a number of testing frameworks, incl. JMeter, Gatling, Selenium and Taurus. Therefore this plugin is focused on a narrow use case: single JMeter test that are specified inline the XLR task.
+BlazeMeter markets a commercial, self-service load testing platform as a service (PaaS), which is compatible with open-source Apache JMeter, the performance testing framework from the Apache Software Foundation. BlazeMeter comes with a well documented API layer with integration into a number of testing frameworks, incl. JMeter, Gatling, Selenium and Taurus.
 
 ### Design decisions on plugin scope
 
-The current version ONLY supports a single Test run. The other type of test that is not supported currently is called a Multi Test. A Multi Test is used for distributed load testing.
+The plugin now supports multiple-scenario / multiple location tests. It will monitor **all** sessions until completion. Finally, it will log the test report summary URL for more information.
 
 ## Installation
 
@@ -43,8 +43,6 @@ The **BlazeMeter: Run a Test** task type runs a preconfigured load test. It requ
 * The Test ID to identify the test.
 * The Workspace ID for the tests / reports
 * The desired polling interval to check for updates
-
-[Optional] You can also capture the session ID for debugging purposes. This can be used to retrieve all assets remotely.
 
 ## References:
 * [BlazeMeter REST APIs](https://guide.blazemeter.com/hc/en-us/articles/206732689-BlazeMeter-REST-APIs)

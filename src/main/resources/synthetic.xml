@@ -28,9 +28,6 @@
         <property name="note" category="input" required="false" label="Note" description="A note to describe this test run" />
         <property name="pollingInterval" category="input" default="30" required="true" kind="integer"
             description="Polling interval in seconds to check task status" />
-
-        <!-- Outputs -->
-        <property name="session" category="output" label="Session ID" description="The session id for this test run" />
     </type>
 
     <!-- Add test data -->
@@ -51,6 +48,7 @@
         <property name="filename" category="input" required="true" label="Filename" description="The filename to use when uploading the test data file" />
     </type>   
 
+    <!-- Global configuration -->
     <type type="blazemeter.Server" extends="xlrelease.Configuration">
         <property name="url" label="BlazeMeter URL" required="true" description="BlazeMeter RESTful API URL" />
     </type>

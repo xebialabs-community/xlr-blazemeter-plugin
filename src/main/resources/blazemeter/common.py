@@ -114,8 +114,7 @@ def call_url(verb, url, data, headers):
             request = urllib2.Request(url, headers=headers)
             request.get_method = lambda: 'GET'
         else:
-            print 'HTTP verb error!\n'
-            print 'Reason: Only POST, PUT, PATCH, DELETE and GET verbs supported.\n'
+            print 'FATAL: HTTP verb error! Only POST, PUT, PATCH, DELETE and GET verbs supported.\n'
             sys.exit(201)
           
         response = opener.open(request)
@@ -123,20 +122,16 @@ def call_url(verb, url, data, headers):
 
     # Catch all exceptions
     except urllib2.HTTPError as error:
-        print 'HTTP %s error!\n' % error.code
-        print 'Reason: %s (URL: %s)\n' % (error.msg, url)
+        print 'FATAL: HTTP %s error! %s (URL: %s)\n' % (error.code, error.msg, url)
         sys.exit(202)
     except urllib2.URLError as error:
-        print 'Network error!\n'
-        print 'Reason: %s\n' % error.reason
+        print 'FATAL: Network error! %s\n' % error.reason
         sys.exit(203)
     except ValueError as error:
-        print 'JSON parsing error!\n'
-        print 'Reason: %s\n' % error.message
+        print 'FATAL: JSON parsing error! %s\n' % error.message
         sys.exit(204)
     except Exception as error:
-        print 'Uncaught error!\n'
-        print 'Reason: %s\n' % error
+        print 'FATAL: Uncaught error! %s\n' % error
         sys.exit(205)
 
     return output

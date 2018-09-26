@@ -19,33 +19,27 @@ contents = ''
 
 # Make sure all the required paramaters are set
 if not base_url.strip():
-    print 'Input error!\n'
-    print 'Reason: Server configuration url undefined\n'
+    print 'FATAL: Input error! Server configuration url undefined\n'
     sys.exit(101)
 
 if not keyId.strip():
-    print 'Input error!\n'
-    print 'Reason: Parameter keyId undefined\n'
+    print 'FATAL: Input error! Parameter keyId undefined\n'
     sys.exit(102)
 
 if not secret.strip():
-    print 'Input error!\n'
-    print 'Reason: Parameter secret undefined\n'
+    print 'FATAL: Input error! Parameter secret undefined\n'
     sys.exit(103)
 
 if not test.strip():
-    print 'Input error!\n'
-    print 'Reason: Parameter test undefined\n'
+    print 'FATAL: Input error! Parameter test undefined\n'
     sys.exit(104)
 
 if not filename.strip():
-    print 'Input error!\n'
-    print 'Reason: Parameter filename undefined\n'
+    print 'FATAL: Input error! Parameter filename undefined\n'
     sys.exit(105)
 
 if not testData:
-    print 'Input error!\n'
-    print 'Reason: Parameter testData undefined\n'
+    print 'FATAL: Input error! Parameter testData undefined\n'
     sys.exit(106)
 
 print 'BlazeMeter test data upload started\n'
@@ -56,7 +50,7 @@ try:
         row = literal_eval(r)
         contents += ','.join(map(str, row)) + '\n'
 except Exception as error:
-    print 'The test data is in the wrong format!\n'
+    print 'FATAL: The test data is in the wrong format!\n'
     print 'Example: ["(\'Header1\', \'Header2\')", "(\'Value1\', \'Value2\')"]\n'
     sys.exit(107)
 
@@ -74,12 +68,9 @@ data = call_url('post', upload_url, url_data, url_headers)
 
 if 'updated' in data.get('result') and data.get('result').get('updated') == True:
     print 'BlazeMeter file upload for test %s completed **successfully**\n' % test
-    print '```'
-    print json.dumps(data)
-    print '```'
     sys.exit(0)    
         
-print 'BlazeMeter upload for test %s **failed**\n' % test
+print 'FATAL: BlazeMeter upload for test %s **failed**:\n' % test
 print '```'
 print json.dumps(data)
 print '```'
