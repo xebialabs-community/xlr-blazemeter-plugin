@@ -1,6 +1,6 @@
 language: java
 before_install:
-  - chmod +x gradlew
+- chmod +x gradlew
 deploy:
   provider: releases
   api_key:
@@ -10,3 +10,6 @@ deploy:
   on:
     tags: true
     repo: xebialabs-community/xlr-blazemeter-plugin
+notifications:
+  slack:
+    secure: u6uCBl1kWPMl9YZBP8v+U2+B/QgoTVLXJjE/RbfJOAcqw/VNjt3+niv2uhyReXJLShsDmeJYaKh70mBP+iJcb3LywY6GS0nWMqjHpGFu3xw4XlyXLuEhmuDZ7KY2waxSvOfYxDtmdHwEd8Pl1g2f+/ssthEl5H1dUQulAt3muuKxkK1vhM0bTsZXF/evlXgNReNsU1h8Pz8F0uScWUU0VekEo8e8oTw7JLbx6GYXSX6uhnYzHo9u/N+h+kBSYOGp9XJqfWSQHFPxjOZM0Ol6KFe/LYHYGKQPM3hE0/A6wdVX1F/dx/bQpwZ29izF7BN3p721Ulbsl6kEZ30mht2OHRhlZN5MzSHYDmagzQdQv2QuSMyW6KnUgoYQXDS/WJrlun/uxMUaVrr4RgB0QiN2Ix8S/A3zy3JJMfrhA5brTnuzE1B7pDFVxFJGkX5cJhafLXQbKqNoBVHWs2YzwrdoEZty57zTy8ehQA8LtxY9KwhhnlC7KD9QbfOrP37KZZRJ/hyGmwj67nt48jfKsuhS4OXJmGw6unOv2WkUKicWTlgKBwqaY49hDdi72TAI8Xten9PnwxM28bcXDZV3OGrGXHqu/WBPLmIctfz9qqSxiFmw/RslmxnGszGBiJRP0HZbwicnZlHxgerofWWs2Mjt+e+P1k5xwqeqwNlsUu4vJVA=
