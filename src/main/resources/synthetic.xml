@@ -9,7 +9,15 @@
 
 <synthetic xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd"
            xmlns="http://www.xebialabs.com/deployit/synthetic"
-           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">        
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <!-- Global configuration -->
+    <type type="blazemeter.Server" extends="xlrelease.Configuration">
+        <property name="scriptLocation" hidden="true" default="blazemeter/ConnectionCheck.py"/>
+        <property name="url" required="true" label="Server URL" default="https://a.blazemeter.com/api/v4" description="Address where the server can be reached - ex: https://a.blazemeter.com/api/v4"/>
+        <property name="api_key_id" required="true" label="API Key ID" description="The API key id for the user account" />
+        <property name="api_key_secret" required="true" label="API Key Secret" description="The API key secret for the user account" />
+    </type>
 
     <!-- Run a test -->
     <type type="blazemeter.RunTest" extends="xlrelease.PythonScript" description="Run a preconfigured test">
@@ -47,10 +55,4 @@
             description="The list (one row per line item) of test data to add. Use a tuple for comma-separated values" />
         <property name="filename" category="input" required="true" label="Filename" description="The filename to use when uploading the test data file" />
     </type>   
-
-    <!-- Global configuration -->
-    <type type="blazemeter.Server" extends="xlrelease.Configuration">
-        <property name="url" label="BlazeMeter URL" required="true" description="BlazeMeter RESTful API URL" />
-    </type>
- 
 </synthetic>

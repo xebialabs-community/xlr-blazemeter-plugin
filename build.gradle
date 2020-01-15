@@ -2,6 +2,7 @@
 plugins {
     id "java"
     id "com.github.hierynomus.license" version "0.13.1"
+    id "com.xebialabs.xl.docker" version "1.1.0"
 }
 
 // Repositories
@@ -9,6 +10,14 @@ repositories {
     maven {
         url 'http://dist.xebialabs.com/public/maven2'
     }
+}
+
+xlDocker {
+    compileImage = 'xebialabsunsupported/xlr_dev_compile'
+    compileVersion = '9.0'
+    runImage = 'xebialabsunsupported/xlr_dev_run'
+    runVersion = '9.0'
+    runPortMapping = '5516:5516'
 }
 
 // Defaults
