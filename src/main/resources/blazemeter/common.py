@@ -123,15 +123,27 @@ def call_url(verb, url, data, headers):
     # Catch all exceptions
     except urllib2.HTTPError as error:
         print 'FATAL: HTTP %s error! %s (URL: %s)\n' % (error.code, error.msg, url)
+        raise Exception(
+            "Failed to connect to Blazemeter Server. Code: %s Message: %s" % (error.code, error.msg)
+        )
         sys.exit(202)
     except urllib2.URLError as error:
         print 'FATAL: Network error! %s\n' % error.reason
+        raise Exception(
+            "Failed to connect to Blazemeter Server. Code: %s Message: %s" % (error.code, error.msg)
+        )
         sys.exit(203)
     except ValueError as error:
         print 'FATAL: JSON parsing error! %s\n' % error.message
+        raise Exception(
+            "Failed to connect to Blazemeter Server. Code: %s Message: %s" % (error.code, error.msg)
+        )
         sys.exit(204)
     except Exception as error:
         print 'FATAL: Uncaught error! %s\n' % error
+        raise Exception(
+            "Failed to connect to Blazemeter Server. Code: %s Message: %s" % (error.code, error.msg)
+        )
         sys.exit(205)
 
     return output
