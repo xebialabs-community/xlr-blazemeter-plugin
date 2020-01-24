@@ -6,14 +6,10 @@
 import mimetypes
 import random
 import string
-#import urllib2
+import urllib2
 import ssl
 import sys
 import json
-from xlrelease.HttpRequest import HttpRequest
-import org.slf4j.LoggerFactory as LoggerFactory
-
-logger = LoggerFactory.getLogger("Blazemeter")
 
 _BOUNDARY_CHARS = string.digits + string.ascii_letters
 
@@ -88,7 +84,7 @@ def encode_multipart(fields, files, boundary=None):
     return (body, headers)
 
 # Call URL with proper error handling
-def call_url(verb, url, data, keyId, keySecret, serverProxyHost, serverProxyPort, serverProxyUsername, serverProxyPassword ):
+def call_url(verb, url, data, headers):
     r"""A convenience definition to call a URL with the necessary headers
     and payload. No need to worry about how to POST multipart/form-data
     or how to handle certain error exceptions. The return value is either 
@@ -97,74 +93,56 @@ def call_url(verb, url, data, keyId, keySecret, serverProxyHost, serverProxyPort
 
     context = ssl._create_unverified_context()
     
-    #https_handler = urllib2.HTTPSHandler(context=context)
-    #opener = urllib2.build_opener(https_handler)
+    https_handler = urllib2.HTTPSHandler(context=context)
+    opener = urllib2.build_opener(https_handler)
     output = ''
-
-    params = {
-        'username': keyId,
-        'password': keySecret,
-        'proxyHost': serverProxyHost,
-        'proxyPort': serverProxyPort,
-        'proxyUsername': serverProxyUsername,
-        'proxyPassword': serverProxyPassword
-    }
 
     try:
         if verb == 'post':
-            #request = urllib2.Request(url, data=data, headers=headers)
-            #request.get_method = lambda: 'POST'
-            logger.error("in the post call right before we send the request")
-            logger.error("the URL is: %s" % url)
-            logger.error("the data is: %s" % data)
-            response = HttpRequest(params).post(url, body=data, contentType='application/json')
-            logger.error("the response is: %s" % response)
+            request = urllib2.Request(url, data=data, headers=headers)
+            request.get_method = lambda: 'POST'
         elif verb == 'put':
-            #request = urllib2.Request(url, data=data, headers=headers)
-            #request.get_method = lambda: 'PUT'
-            response = HttpRequest(params).put(url, body=data, contentType='application/json')
+            request = urllib2.Request(url, data=data, headers=headers)
+            request.get_method = lambda: 'PUT'
         elif verb == 'patch':
-            #request = urllib2.Request(url, data=data, headers=headers)
-            #request.get_method = lambda: 'PATCH'
-            response = HttpRequest(params).patch(url, body=data, contentType='application/json')
+            request = urllib2.Request(url, data=data, headers=headers)
+            request.get_method = lambda: 'PATCH'
         elif verb == 'delete':
-            #request = urllib2.Request(url, data=data, headers=headers)
-            #request.get_method = lambda: 'DELETE'
-            response = HttpRequest(params).delete(url, body=data, contentType='application/json')
+            request = urllib2.Request(url, data=data, headers=headers)
+            request.get_method = lambda: 'DELETE'
         elif verb == 'get':
-            #request = urllib2.Request(url, headers=headers)
-            #request.get_method = lambda: 'GET'
-            response = HttpRequest(params).get(url, contentType='application/json')
+            request = urllib2.Request(url, headers=headers)
+            request.get_method = lambda: 'GET'
         else:
             print 'FATAL: HTTP verb error! Only POST, PUT, PATCH, DELETE and GET verbs supported.\n'
             sys.exit(201)
-
-        #response = opener.open(request)
+          
+        response = opener.open(request)
         output = json.loads(response.read())
 
     # Catch all exceptions
-    # except urllib2.HTTPError as error:
-    #     print 'FATAL: HTTP %s error! %s (URL: %s)\n' % (error.code, error.msg, url)
-    #     raise Exception(
-    #         "Failed to connect to Blazemeter Server. Code: %s Message: %s" % (error.code, error.msg)
-    #     )
-    #     sys.exit(202)
-    # except urllib2.URLError as error:
-    #     print 'FATAL: Network error! %s\n' % error.reason
-    #     raise Exception(
-    #         "Failed to connect to Blazemeter Server. Code: %s Message: %s" % (error.code, error.msg)
-    #     )
-    #     sys.exit(203)
-    # except ValueError as error:
-    #     print 'FATAL: JSON parsing error! %s\n' % error.message
-    #     raise Exception(
-    #         "Failed to connect to Blazemeter Server. Code: %s Message: %s" % (error.code, error.msg)
-    #     )
-    #     sys.exit(204)
-    except Exception as error:
-        print 'FATAL: Error! %s\n' % error
+    except urllib2.HTTPError as error:
+        print 'FATAL: HTTP %s error! %s (URL: %s)\n' % (error.code, error.msg, url)
         raise Exception(
-            "Failed to connect to Blazemeter Server."
+            "Failed to connect to Blazemeter Server. Code: %s Message: %s" % (error.code, error.msg)
+        )
+        sys.exit(202)
+    except urllib2.URLError as error:
+        print 'FATAL: Network error! %s\n' % error.reason
+        raise Exception(
+            "Failed to connect to Blazemeter Server. Code: %s Message: %s" % (error.code, error.msg)
+        )
+        sys.exit(203)
+    except ValueError as error:
+        print 'FATAL: JSON parsing error! %s\n' % error.message
+        raise Exception(
+            "Failed to connect to Blazemeter Server. Code: %s Message: %s" % (error.code, error.msg)
+        )
+        sys.exit(204)
+    except Exception as error:
+        print 'FATAL: Uncaught error! %s\n' % error
+        raise Exception(
+            "Failed to connect to Blazemeter Server. Code: %s Message: %s" % (error.code, error.msg)
         )
         sys.exit(205)
 

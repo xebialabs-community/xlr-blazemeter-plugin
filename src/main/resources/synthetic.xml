@@ -12,12 +12,14 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
     <!-- Global configuration -->
-    <type type="blazemeter.Server" extends="xlrelease.Configuration">
-        <property name="scriptLocation" hidden="true" default="blazemeter/ConnectionCheck.py"/>
-        <property name="url" required="true" label="Server URL" default="https://a.blazemeter.com/api/v4" description="Address where the server can be reached - ex: https://a.blazemeter.com/api/v4"/>
-        <property name="api_key_id" required="true" label="API Key ID" description="The API key id for the user account" />
-        <property name="api_key_secret" required="true" label="API Key Secret" description="The API key secret for the user account" />
+    <type type="blazemeter.Server" extends="configuration.HttpConnection">
     </type>
+
+    <type-modification type="configuration.HttpConnection">
+        <property name="url" default="https://a.blazemeter.com" description="Address where the server can be reached - ex: https://a.blazemeter.com"/>
+        <!--<property name="username" required="true" label="API Key ID" description="The API key id for the user account"/>
+        <property name="password" required="true" label="API Key Secret" description="The API key secret for the user account"/>-->
+    </type-modification>
 
     <!-- Run a test -->
     <type type="blazemeter.RunTest" extends="xlrelease.PythonScript" description="Run a preconfigured test">

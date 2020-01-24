@@ -6,12 +6,12 @@
 
 import json
 import sys
+import urllib2
+import ssl
 import time
 import base64
-from blazemeter.common import (call_url, encode_multipart)
-import org.slf4j.LoggerFactory as LoggerFactory
 
-logger = LoggerFactory.getLogger("Blazemeter")
+from blazemeter.common import (call_url, encode_multipart)
 
 # Initialize variables
 app_url = ''
@@ -50,23 +50,15 @@ headers['Content-Type'] = 'application/json'
 
 # Start the test
 base_url = server.get('url').strip('/')
-serverProxyHost = server.get('proxyHost')
-serverProxyPort = server.get('proxyPort')
-serverProxyUsername = server.get('proxyUsername')
-serverProxyPassword = server.get('proxyPassword')
 start_test_url = '%s/api/v4/tests/%s/start' % (base_url, test)
-logger.error("call 1.")
-data = call_url('post', start_test_url, {}, keyId, secret, serverProxyHost, serverProxyPort, serverProxyUsername, serverProxyPassword)
-logger.error("after call 1. My data value is: %s" % data)
+data = call_url('post', start_test_url, {}, headers)
 sessions = data.get('result').get('sessionsId')
 
 print 'The following sessions were successfully started: %s\n' % ', '.join(sessions)
 
 # Retrieve the master id from the first session
 session_url = '%s/api/v4/sessions/%s' % (base_url, sessions[0])
-logger.error("call 2.")
-data = call_url('get', session_url, None, keyId, secret, serverProxyHost, serverProxyPort, serverProxyUsername, serverProxyPassword)
-logger.error("after call 2. My data value is: %s" % data)
+data = call_url('get', session_url, None, headers)
 master = data.get('result').get('masterId')
 project = data.get('result').get('projectId')
 
@@ -74,9 +66,7 @@ project = data.get('result').get('projectId')
 master_url = '%s/api/v4/masters/%s' % (base_url, master)
 if note and note.strip():
     note_json = {"note": note}
-    logger.error("after call 3.")
-    data = call_url('patch', master_url, json.dumps(note_json), keyId, secret, serverProxyHost, serverProxyPort, serverProxyUsername, serverProxyPassword)
-    logger.error("after call 3. My data value is: %s" % data)
+    data = call_url('patch', master_url, json.dumps(note_json), headers)
     if not data.get('error'):
         print 'Successfully updated the notes for this test\n'
 
@@ -86,10 +76,8 @@ while True:
     for session in sessions[:]:
         print 'Monitoring session [%s] progress #%d\n' % (session, count)
         session_status_url = '%s/api/v4/sessions/%s/status' % (base_url, session)
-        count += 1
-        logger.error("call 4.")
-        data = call_url('get', session_status_url, None, keyId, secret, serverProxyHost, serverProxyPort, serverProxyUsername, serverProxyPassword)
-        logger.error("after call 4. My data value is: %s" % data)
+        count += 1  
+        data = call_url('get', session_status_url, None, headers)
         if data.get('result').get('status') == "ENDED":
             if 'errors' in data.get('result') and data.get('result').get('errors'):
                 error = data.get('result').get('errors')[0]
@@ -103,19 +91,15 @@ while True:
 
 # Retrieve the account information to build a url in order to view the reports
 account_url = '%s/api/v4/accounts' % base_url
-logger.error("call 5.")
-data = call_url('get', account_url, None, keyId, secret, serverProxyHost, serverProxyPort, serverProxyUsername, serverProxyPassword)
-logger.error("after call 5. My data value is: %s" % data)
+data = call_url('get', account_url, None, headers)
 result = data.get('result')[0]
 if result and 'id' in result:
     account = result.get('id')
     app_url = result.get('appUrl')
-    print 'Test report summary URL: %s/app/#/accounts/%s/workspaces/%s/projects/%s/masters/%s/summary\n' % (app_url, account, workspace, project, master)
+    print 'Test report summary URL: %s/api/v4/app/#/accounts/%s/workspaces/%s/projects/%s/masters/%s/summary\n' % (app_url, account, workspace, project, master)
 
 # Review the test report
-logger.error("call 6.")
-data = call_url('get', master_url, None, keyId, secret, serverProxyHost, serverProxyPort, serverProxyUsername, serverProxyPassword)
-logger.error("after call 6. My data value is: %s" % data)
+data = call_url('get', master_url, None, headers)
 if 'passed' in data.get('result') and data.get('result').get('passed') == False:
     print 'BlazeMeter test %s **failed**:\n' % test
     print '```'
