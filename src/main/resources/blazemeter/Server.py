@@ -15,7 +15,7 @@ params = {
     'proxyPassword': configuration.proxyPassword
 }
 # make a http request call to the server - access the user api in this test
-response = HttpRequest(params).get(configuration.url +'/api/v4/user', contentType='application/json')
+response = HttpRequest(params).get('/api/v4/user', contentType='application/json')
 # check response status code, if different than 200 exit with error code
 if response.status != 200:
     raise Exception(
