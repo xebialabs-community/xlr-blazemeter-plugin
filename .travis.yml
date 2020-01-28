@@ -6,7 +6,8 @@ deploy:
   provider: releases
   api_key:
     secure: jHIZm5KowDPo8b/5c2WiSbyaPD2xmVC5v2OCdmuFKRJvs1mbxxWzYORCAPw7mvOpdN0UgERe9Rm0JAV1L2OrxpHK3+tuX2toufUMmrydWzEYseqiQoZFbhI9JJ07WkbA5CgqwbmqBIdUHLuK9fD+6ZIfbLc1qtbmuLW6lFjABGNbwrIUpb8TgeuqfnCnK0+CiqiUBBMrI0aBkIX4/oOwCx7RhkU+52QBI8riTReUZAe5EE6ngaRUHRs/hIRKZfIqFUCetyQchqyU13A9Mxklp2ULSBmretTLlYAcN8nqTvQJPaDtmVJqpb7stFQ7BzGUOLE0jnwDQN1ULu28UUHxB/JzQBOW8xcCHje0gJ8mBq6mQHYYOuxUz6YXaTuWMExeEfwLPzAcSFQpJc2S+aBHu3O2QV81p3L6E7Y7/sn1JlaeJ2mdZefwqfo5RojSjgbuisua1aVnpYVcf0QxbEKOCfuAbfRCTM8LMd7yZ/XmwMiwL4bCFTMaPC01pmv6x5w6RlFIZ6ADu5WRffa7kiwFOFOLHHP+trlZp/HVxO/HzRK21VRcMbwrH4vMcwIZjqu0cFGMHESMsRQCQVN2bCwRNkr3j0xiTReWN+jkqIyo0m/p9osMFC3hSwLqwKO1T6wtYX0QMqPR3CHSboyKUCU9MP0XTAcrjyVLhxOqaXSfmhU=
-  file: build/libs/xlr-blazemeter-plugin-1.0.0.jar
+  file: build/libs/*
+  file_glob: true
   skip_cleanup: true
   on:
     tags: true
