@@ -6,11 +6,8 @@
 
 import json
 import sys
-import urllib2
-import ssl
 import time
 import base64
-
 from blazemeter.common import (call_url, encode_multipart)
 
 # Initialize variables
@@ -50,23 +47,27 @@ headers['Content-Type'] = 'application/json'
 
 # Start the test
 base_url = server.get('url').strip('/')
-start_test_url = '%s/tests/%s/start' % (base_url, test)
-data = call_url('post', start_test_url, {}, headers)
+serverProxyHost = server.get('proxyHost')
+serverProxyPort = server.get('proxyPort')
+serverProxyUsername = server.get('proxyUsername')
+serverProxyPassword = server.get('proxyPassword')
+start_test_url = '/api/v4/tests/%s/start' % (test)
+data = call_url('post', {}, base_url, start_test_url, keyId, secret, serverProxyHost, serverProxyPort, serverProxyUsername, serverProxyPassword)
 sessions = data.get('result').get('sessionsId')
 
 print 'The following sessions were successfully started: %s\n' % ', '.join(sessions)
 
 # Retrieve the master id from the first session
-session_url = '%s/sessions/%s' % (base_url, sessions[0])
-data = call_url('get', session_url, None, headers)
+session_url = '/api/v4/sessions/%s' % (sessions[0])
+data = call_url('get', None, base_url, session_url, keyId, secret, serverProxyHost, serverProxyPort, serverProxyUsername, serverProxyPassword)
 master = data.get('result').get('masterId')
 project = data.get('result').get('projectId')
 
 # Update the test with a custom note
-master_url = '%s/masters/%s' % (base_url, master)
+master_url = '/api/v4/masters/%s' % (master)
 if note and note.strip():
     note_json = {"note": note}
-    data = call_url('patch', master_url, json.dumps(note_json), headers)
+    data = call_url('patch', json.dumps(note_json), base_url, master_url, keyId, secret, serverProxyHost, serverProxyPort, serverProxyUsername, serverProxyPassword)
     if not data.get('error'):
         print 'Successfully updated the notes for this test\n'
 
@@ -75,9 +76,9 @@ count = 1
 while True:
     for session in sessions[:]:
         print 'Monitoring session [%s] progress #%d\n' % (session, count)
-        session_status_url = '%s/sessions/%s/status' % (base_url, session)
-        count += 1  
-        data = call_url('get', session_status_url, None, headers)
+        session_status_url = '/api/v4/sessions/%s/status' % (session)
+        count += 1
+        data = call_url('get', None, base_url, session_status_url, keyId, secret, serverProxyHost, serverProxyPort, serverProxyUsername, serverProxyPassword)
         if data.get('result').get('status') == "ENDED":
             if 'errors' in data.get('result') and data.get('result').get('errors'):
                 error = data.get('result').get('errors')[0]
@@ -90,8 +91,8 @@ while True:
     time.sleep(pollingInterval)
 
 # Retrieve the account information to build a url in order to view the reports
-account_url = '%s/accounts' % base_url
-data = call_url('get', account_url, None, headers)
+account_url = '/api/v4/accounts'
+data = call_url('get', None, base_url, account_url, keyId, secret, serverProxyHost, serverProxyPort, serverProxyUsername, serverProxyPassword)
 result = data.get('result')[0]
 if result and 'id' in result:
     account = result.get('id')
@@ -99,7 +100,7 @@ if result and 'id' in result:
     print 'Test report summary URL: %s/app/#/accounts/%s/workspaces/%s/projects/%s/masters/%s/summary\n' % (app_url, account, workspace, project, master)
 
 # Review the test report
-data = call_url('get', master_url, None, headers)
+data = call_url('get', None, base_url, master_url, keyId, secret, serverProxyHost, serverProxyPort, serverProxyUsername, serverProxyPassword)
 if 'passed' in data.get('result') and data.get('result').get('passed') == False:
     print 'BlazeMeter test %s **failed**:\n' % test
     print '```'
