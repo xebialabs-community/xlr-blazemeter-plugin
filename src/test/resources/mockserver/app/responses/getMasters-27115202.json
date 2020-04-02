@@ -1,0 +1,84 @@
+{
+  "api_version": 4,
+  "error": null,
+  "result": {
+    "id": 27115202,
+    "name": "April_01_4:44 PM - API Functional Test",
+    "userId": 898630,
+    "ended": 1585784737,
+    "delayedStartReady": false,
+    "runnerUserId": 898630,
+    "charges": [],
+    "created": 1585784703,
+    "updated": 1585789462,
+    "note": "This is a note",
+    "passed": false,
+    "parallelTestsInWorkspace": 1,
+    "parallelTestsInAccount": 1,
+    "isPrivateData": false,
+    "executionMode": "functional",
+    "creatorClientId": "gui",
+    "executorClientId": "gui",
+    "secondsPerLabelDoc": 60,
+    "labelsCollectionSuffix": "_17_12",
+    "isDebugRun": false,
+    "locations": [
+      "harbor-58d3b97ff132adc0347b23c6"
+    ],
+    "scenariosMapping": [
+      {
+        "id": "aba3ee66cabcdacfefc362cfc6076b12ce30e8dfcc61b57a4d8e8b3bb8437353",
+        "name": "My Scenario",
+        "test": "April_01_4:44 PM - API Functional Test",
+        "isEndUserExperience": false
+      }
+    ],
+    "executions": [
+      {
+        "concurrency": 1,
+        "holdFor": "1200s",
+        "iterations": 1,
+        "locations": {
+          "harbor-58d3b97ff132adc0347b23c6": 1
+        },
+        "locationsWeighted": true,
+        "scenario": "My Scenario"
+      }
+    ],
+    "useV4Pipeline": false,
+    "isSelenium": false,
+    "hasMonitoringData": true,
+    "rpsCompatible": false,
+    "remoteControlCompatible": false,
+    "hasDaggerData": false,
+    "hasData": true,
+    "shouldUseDaggerReport": false,
+    "testId": 7876932,
+    "projectId": 564822,
+    "sessionsId": [
+      "r-v4-5e85277fd8596"
+    ],
+    "thumbnailUrl": null,
+    "hasErrorsPerInterval": true,
+    "functionalSummary": {
+      "testsCount": 1,
+      "requestsCount": 1,
+      "errorsCount": 1,
+      "assertions": {
+        "count": 2,
+        "passed": 1
+      },
+      "responseTime": {
+        "sum": 1691
+      },
+      "isFailed": true,
+      "failedCount": 1,
+      "failedPercentage": 50
+    },
+    "sessions": [
+      "r-v4-5e85277fd8596"
+    ],
+    "jetpackLabels": []
+  },
+  "request_id": "5e853a7d32f64"
+}
