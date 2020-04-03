@@ -1,0 +1,870 @@
+{
+  "api_version": 4,
+  "error": null,
+  "result": {
+    "id": "r-v4-5e83c504df4a3",
+    "name": "March_31_3:18 PM - API Functional Test",
+    "fileName": "blazemeter_functional_script.yaml",
+    "progress": 140,
+    "status": "ENDED",
+    "errors": null,
+    "readyStatus": {
+      "servers": [
+        {
+          "server_id": "5e6929ee0e212641b80a9dd5",
+          "server_type": "console"
+        }
+      ],
+      "plannedServersCount": 1,
+      "isDelayedStart": false
+    },
+    "locationId": "harbor-58d3b97ff132adc0347b23c6",
+    "jmeterLogSummary": [],
+    "jmeterLogTypeSummary": [],
+    "dedicatedIpsEnabled": null,
+    "events": [
+      {
+        "t": 1585694138,
+        "from": -6,
+        "source": "system",
+        "message": "Taurus completed (Exit: None)",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694138,
+        "from": -6,
+        "source": "system",
+        "message": "0 seconds until process run completion",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694138,
+        "from": -6,
+        "source": "system",
+        "message": "skipping creating and uploading artifacts",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694137,
+        "from": -6,
+        "source": "system",
+        "message": "Collecting atop.binlog - saving to log file",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694137,
+        "from": -6,
+        "source": "system",
+        "message": "Starting cloud shutdown",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694137,
+        "from": -6,
+        "source": "system",
+        "message": "Downloading the custom configuration file from https://a.blazemeter.com/api/v4/taurus/r-v4-5e83c504df4a3/custom-config",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694136,
+        "from": -6,
+        "source": "system",
+        "message": "session already ended",
+        "level": "WARNING",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694136,
+        "from": -6,
+        "source": "system",
+        "message": "Downloading the configuration file from https://a.blazemeter.com/api/v4/taurus/r-v4-5e83c504df4a3/original-config",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694136,
+        "from": -6,
+        "source": "system",
+        "message": "Getting base configuration from configuration file https://a.blazemeter.com/api/v4/taurus/r-v4-5e83c504df4a3/original-config and additional configuration from the custom configuration https://a.blazemeter.com/api/v4/taurus/r-v4-5e83c504df4a3/custom-config",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694135,
+        "from": -6,
+        "source": "system",
+        "message": "[Init Info: After init variables]                     \n\t\t\t\t\t\t\toriginal_config: https://a.blazemeter.com/api/v4/taurus/r-v4-5e83c504df4a3/original-config                     \n\t\t\t\t\t\t\tcustom_config: https://a.blazemeter.com/api/v4/taurus/r-v4-5e83c504df4a3/custom-config                     \n\t\t\t\t\t\t\tEVENTS_URL: https://data.blazemeter.com/api/v4/taurus/r-v4-5e83c504df4a3/events                     \n\t\t\t\t\t\t\tFILE_NAME: blazemeter_functional_script.yaml                     \n\t\t\t\t\t\t\tSCRIPT_TYPE: taurus                     \n\t\t\t\t\t\t\tINSTANCE ID: None",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694135,
+        "from": -6,
+        "source": "system",
+        "message": "Running blacklist check",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694135,
+        "from": -6,
+        "source": "system",
+        "message": "Applying blacklist",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694135,
+        "from": -6,
+        "source": "system",
+        "message": "Blacklist check completed (Check: 1)",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694134,
+        "from": -6,
+        "source": "system",
+        "message": "Session id is set",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694134,
+        "from": -6,
+        "source": "system",
+        "message": "[Init Info: Before init variables]                     \n\t\t\t\t\t\t\toriginal_config: https://a.blazemeter.com/api/v4/taurus/r-v4-5e83c504df4a3/original-config                     \n\t\t\t\t\t\t\tcustom_config: https://a.blazemeter.com/api/v4/taurus/r-v4-5e83c504df4a3/custom-config                     \n\t\t\t\t\t\t\tEVENTS_URL: https://data.blazemeter.com/api/v4/taurus/r-v4-5e83c504df4a3/events                     \n\t\t\t\t\t\t\tFILE_NAME: blazemeter_functional_script.yaml                     \n\t\t\t\t\t\t\tSCRIPT_TYPE: taurus                     \n\t\t\t\t\t\t\tINSTANCE ID: None",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694134,
+        "from": -6,
+        "source": "system",
+        "message": "Taurus update complete",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694134,
+        "from": -6,
+        "source": "system",
+        "message": "Starting Taurus update",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694134,
+        "from": -6,
+        "source": "system",
+        "message": "Running Taurus update",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694134,
+        "from": -6,
+        "source": "system",
+        "message": "Testing Operation System: ***linux***",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694134,
+        "from": -6,
+        "source": "system",
+        "message": "Starting Taurus Cloud - Cloud Launcher",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694134,
+        "from": -6,
+        "source": "system",
+        "message": "Prepare: file path created",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694133,
+        "from": -6,
+        "source": "system",
+        "message": "Prepare: file path created",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694133,
+        "from": -6,
+        "source": "system",
+        "message": "Prepare: Verify file path /usr/local",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694133,
+        "from": -6,
+        "source": "system",
+        "message": "Prepare: file path created",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694133,
+        "from": -6,
+        "source": "system",
+        "message": "Prepare: Verify file path /tmp/artifacts",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694133,
+        "from": -6,
+        "source": "system",
+        "message": "Prepare: Verify file path /tmp/artifacts/admin",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694133,
+        "from": -6,
+        "source": "system",
+        "message": "Prepare: Verify file path /usr/local/taurus-cloud/files",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694133,
+        "from": -6,
+        "source": "system",
+        "message": "Prepare: file path created",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694133,
+        "from": -6,
+        "source": "system",
+        "message": "Prepare: Verify file path /usr/local/bztcloud",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694133,
+        "from": -6,
+        "source": "system",
+        "message": "Prepare: file path created",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694132,
+        "from": -6,
+        "source": "system",
+        "message": "Prepare: Preparing test launcher environment",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694125,
+        "from": -6,
+        "source": "system",
+        "message": "Finished file upload",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694125,
+        "from": -6,
+        "source": "system",
+        "message": "Status changed to ENDED (140)",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694125,
+        "from": -6,
+        "source": "system",
+        "message": "Terminate command sent",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694125,
+        "from": -6,
+        "source": "system",
+        "message": "Status changed to TAURUS_IMAGE_DONE (136)",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694125,
+        "from": -6,
+        "source": "system",
+        "message": "Taurus completed (Exit: 0)",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694125,
+        "from": -6,
+        "source": "system",
+        "message": "0 seconds until process run completion",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694125,
+        "from": -6,
+        "source": "system",
+        "message": "Artifacts zip files generated [/tmp/artifacts/artifacts.zip, /tmp/artifacts/artifacts.zip.tail.bz]",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694124,
+        "from": -6,
+        "source": "system",
+        "message": "Zipping path /tmp/artifacts/admin",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694124,
+        "from": -6,
+        "source": "system",
+        "message": "Moving file /tmp/artifacts/jetpack.log",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694124,
+        "from": -6,
+        "source": "system",
+        "message": "Zipping artifacts into file /tmp/artifacts/admin-artifacts.zip",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694124,
+        "from": -6,
+        "source": "system",
+        "message": "Zipping path /tmp/artifacts",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694124,
+        "from": -6,
+        "source": "system",
+        "message": "Admin artifacts zip files generated [/tmp/artifacts/admin-artifacts.zip, /tmp/artifacts/admin-artifacts.zip.tail.bz]",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694124,
+        "from": -6,
+        "source": "system",
+        "message": "Zipping artifacts into file /tmp/artifacts/artifacts.zip",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694123,
+        "from": -6,
+        "source": "system",
+        "message": "Moving file /tmp/artifacts/jetpack-download.log",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694123,
+        "from": -6,
+        "source": "system",
+        "message": "Moving file /tmp/artifacts/final-overrides.yml",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694123,
+        "from": -6,
+        "source": "system",
+        "message": "Moving file /tmp/artifacts/merged.json",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585694123,
+        "from": -6,
+        "source": "system",
+        "message": "Moving file /tmp/artifacts/jetlag.log",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693992,
+        "from": -6,
+        "source": "system",
+        "message": "File /tmp/artifacts/taurus_start.log not found on disk",
+        "level": "WARNING",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693992,
+        "from": -6,
+        "source": "system",
+        "message": "File /tmp/artifacts/jetpack.properties not found on disk",
+        "level": "WARNING",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693992,
+        "from": -6,
+        "source": "system",
+        "message": "Moving file /tmp/artifacts/taurus-custom-config.yml",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693992,
+        "from": -6,
+        "source": "system",
+        "message": "Moving file /tmp/artifacts/effective.yml",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693992,
+        "from": -6,
+        "source": "system",
+        "message": "File /tmp/artifacts/taurus-base-config.yml not found on disk",
+        "level": "WARNING",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693992,
+        "from": -6,
+        "source": "system",
+        "message": "Moving file /tmp/artifacts/exported.jetlag.ldjson",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693992,
+        "from": -6,
+        "source": "system",
+        "message": "Moving file /tmp/artifacts/jetlag-download.log",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693992,
+        "from": -6,
+        "source": "system",
+        "message": "Moving file /tmp/artifacts/effective.json",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693992,
+        "from": -6,
+        "source": "system",
+        "message": "Moving file /tmp/artifacts/merged.yml",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693992,
+        "from": -6,
+        "source": "system",
+        "message": "Moving file /tmp/artifacts/cloud-launcher.log",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693992,
+        "from": -6,
+        "source": "system",
+        "message": "Moving admin artifacts and creating zip",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693992,
+        "from": -6,
+        "source": "system",
+        "message": "Collecting atop.binlog - saving to log file",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693992,
+        "from": -6,
+        "source": "system",
+        "message": "Starting cloud shutdown",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693991,
+        "from": -6,
+        "source": "system",
+        "message": "Process cleanup completed",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693991,
+        "from": -6,
+        "source": "system",
+        "message": "Running process cleanup",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693991,
+        "from": -6,
+        "source": "system",
+        "message": "Status changed to TAURUS_BZT_DONE (135)",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693986,
+        "from": -6,
+        "source": "system",
+        "message": "Status changed to TERMINATING (130)",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693979,
+        "from": -6,
+        "source": "system",
+        "message": "Status changed to TAURUS_ENGINE_READY (90)",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693979,
+        "from": -6,
+        "source": "system",
+        "message": "Status changed to TAURUS_ENGINE_INIT (71)",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693973,
+        "from": -6,
+        "source": "system",
+        "message": "Jetpack: Could not find jetpack properties file; Exiting nicely...",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693972,
+        "from": -6,
+        "source": "system",
+        "message": "Jetpack: Download process completed",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693972,
+        "from": -6,
+        "source": "system",
+        "message": "Jetpack: Downloading skipped (No URL)",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693971,
+        "from": -6,
+        "source": "system",
+        "message": "Jetlag: Download process completed",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693971,
+        "from": -6,
+        "source": "system",
+        "message": "Jetlag: Skip download ()",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693971,
+        "from": -6,
+        "source": "system",
+        "message": "Running command: atop ('-a', '-w', '/tmp/artifacts/admin/atop.binlog', '15')",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693969,
+        "from": -6,
+        "source": "system",
+        "message": "Status changed to INIT_SCRIPT (50)",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693969,
+        "from": -6,
+        "source": "system",
+        "message": "Getting base configuration from configuration file https://a.blazemeter.com/api/v4/taurus/r-v4-5e83c504df4a3/original-config and additional configuration from the custom configuration https://a.blazemeter.com/api/v4/taurus/r-v4-5e83c504df4a3/custom-config",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693969,
+        "from": -6,
+        "source": "system",
+        "message": "Downloading the configuration file from https://a.blazemeter.com/api/v4/taurus/r-v4-5e83c504df4a3/original-config",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693969,
+        "from": -6,
+        "source": "system",
+        "message": "Downloading the custom configuration file from https://a.blazemeter.com/api/v4/taurus/r-v4-5e83c504df4a3/custom-config",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693969,
+        "from": -6,
+        "source": "system",
+        "message": "verify_ssl value: ",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693969,
+        "from": -6,
+        "source": "system",
+        "message": "Cloud-launcher is running in a Linux environment - setting iptables",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693969,
+        "from": -6,
+        "source": "system",
+        "message": "Running BZT...",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693968,
+        "from": -6,
+        "source": "system",
+        "message": "Taurus update complete",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693968,
+        "from": -6,
+        "source": "system",
+        "message": "Prepare: Verify file path /usr/local/bztcloud",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693968,
+        "from": -6,
+        "source": "system",
+        "message": "Prepare: file path created",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693968,
+        "from": -6,
+        "source": "system",
+        "message": "Starting Taurus Cloud - Cloud Launcher",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693968,
+        "from": -6,
+        "source": "system",
+        "message": "Running Taurus update",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693968,
+        "from": -6,
+        "source": "system",
+        "message": "Starting Taurus update",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693968,
+        "from": -6,
+        "source": "system",
+        "message": "Testing Operation System: ***linux***",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693968,
+        "from": -6,
+        "source": "system",
+        "message": "[Init Info: Before init variables]                     \n\t\t\t\t\t\t\toriginal_config: https://a.blazemeter.com/api/v4/taurus/r-v4-5e83c504df4a3/original-config                     \n\t\t\t\t\t\t\tcustom_config: https://a.blazemeter.com/api/v4/taurus/r-v4-5e83c504df4a3/custom-config                     \n\t\t\t\t\t\t\tEVENTS_URL: https://data.blazemeter.com/api/v4/taurus/r-v4-5e83c504df4a3/events                     \n\t\t\t\t\t\t\tFILE_NAME: blazemeter_functional_script.yaml                     \n\t\t\t\t\t\t\tSCRIPT_TYPE: taurus                     \n\t\t\t\t\t\t\tINSTANCE ID: None",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693968,
+        "from": -6,
+        "source": "system",
+        "message": "Session id is set",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693968,
+        "from": -6,
+        "source": "system",
+        "message": "[Init Info: After init variables]                     \n\t\t\t\t\t\t\toriginal_config: https://a.blazemeter.com/api/v4/taurus/r-v4-5e83c504df4a3/original-config                     \n\t\t\t\t\t\t\tcustom_config: https://a.blazemeter.com/api/v4/taurus/r-v4-5e83c504df4a3/custom-config                     \n\t\t\t\t\t\t\tEVENTS_URL: https://data.blazemeter.com/api/v4/taurus/r-v4-5e83c504df4a3/events                     \n\t\t\t\t\t\t\tFILE_NAME: blazemeter_functional_script.yaml                     \n\t\t\t\t\t\t\tSCRIPT_TYPE: taurus                     \n\t\t\t\t\t\t\tINSTANCE ID: None",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693968,
+        "from": -6,
+        "source": "system",
+        "message": "Running blacklist check",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693968,
+        "from": -6,
+        "source": "system",
+        "message": "Applying blacklist",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693968,
+        "from": -6,
+        "source": "system",
+        "message": "Blacklist check completed (Check: 1)",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693967,
+        "from": -6,
+        "source": "system",
+        "message": "Prepare: file path created",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693967,
+        "from": -6,
+        "source": "system",
+        "message": "Prepare: Verify file path /usr/local/taurus-cloud/files",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693967,
+        "from": -6,
+        "source": "system",
+        "message": "Prepare: file path created",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693967,
+        "from": -6,
+        "source": "system",
+        "message": "Prepare: Verify file path /tmp/artifacts/admin",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693967,
+        "from": -6,
+        "source": "system",
+        "message": "Prepare: file path created",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693967,
+        "from": -6,
+        "source": "system",
+        "message": "Prepare: Verify file path /tmp/artifacts",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693967,
+        "from": -6,
+        "source": "system",
+        "message": "Prepare: file path created",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693967,
+        "from": -6,
+        "source": "system",
+        "message": "Prepare: Verify file path /usr/local",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693967,
+        "from": -6,
+        "source": "system",
+        "message": "Prepare: Preparing test launcher environment",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693958,
+        "from": 0,
+        "source": "system",
+        "message": "Status changed to PREPARING_PROVISIONING (14)",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693957,
+        "from": 0,
+        "source": "system",
+        "message": "Status changed to PREPARING_PROVISIONING (14)",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      },
+      {
+        "t": 1585693957,
+        "from": 898630,
+        "source": "user",
+        "message": "Status changed to CONFIGURING_DEPENDENCIES (10)",
+        "level": "INFO",
+        "session_id": "r-v4-5e83c504df4a3"
+      }
+    ],
+    "isFailed": false
+  },
+  "request_id": "5e83d1a60e58c"
+}

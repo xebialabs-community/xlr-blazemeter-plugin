@@ -1,0 +1,125 @@
+{
+  "api_version": 4,
+  "error": null,
+  "result": {
+    "id": "r-v4-5e85277fd8596",
+    "name": "April_01_4:44 PM - API Functional Test",
+    "userId": 898630,
+    "offset": 0,
+    "statusCode": 140,
+    "status": "ENDED",
+    "ended": 1585784736,
+    "endedSource": "system",
+    "labels": [
+      {
+        "id": "ALL",
+        "name": "ALL",
+        "sessions": []
+      }
+    ],
+    "runtime": {
+      "instances": [
+        "5e6929ee0e212641b80a9dd5"
+      ]
+    },
+    "jmeterVersion": "3.1",
+    "hasErrorsPerInterval": false,
+    "hasMonitoringData": true,
+    "hasLabelStats": false,
+    "isSoakTest": false,
+    "consolePublicIp": {
+      "ip": "35.245.232.79",
+      "isDedicatedIp": false
+    },
+    "enginesPublicIps": [
+      {
+        "ip": "35.245.232.79",
+        "isDedicatedIp": false
+      }
+    ],
+    "labelsCollectionSuffix": "_17_12",
+    "hash": "322a5c09a9b15d962bf6ed52faa373904fa678eaab6c12a15d63633083f06760",
+    "execution": {
+      "concurrency": 1,
+      "holdFor": "1200s",
+      "iterations": 1,
+      "locations": {
+        "harbor-58d3b97ff132adc0347b23c6": 1
+      },
+      "locationsWeighted": true,
+      "scenario": "My Scenario"
+    },
+    "isV4delayedStart": false,
+    "isV4dedicatedIpsEnabled": false,
+    "sessionIndex": 0,
+    "executionIndex": 1,
+    "testSessionsCount": 1,
+    "taurusConfiguration": [],
+    "jetpackLabels": [],
+    "useMasterFiles": false,
+    "useBatchProvisioning": true,
+    "kinesisStream": "prod-blue_v4pipeline_input",
+    "isSelenium": false,
+    "isCharged": false,
+    "isAuthByCapabilities": false,
+    "reProvisioned": false,
+    "addedToRunningMaster": false,
+    "cloudProvider": "privateLocation",
+    "created": 1585784703,
+    "updated": 1585785042,
+    "masterId": 27115202,
+    "testId": 7876932,
+    "projectId": 564822,
+    "runnerUserId": 898630,
+    "configuration": {
+      "location": "harbor-58d3b97ff132adc0347b23c6",
+      "consoleSize": "defaultMachine",
+      "enginesSize": "defaultMachine",
+      "duration": 20,
+      "calculatedDuration": 20,
+      "type": "functionalApi",
+      "indexOffset": 0,
+      "collectionIndexOffset": 0,
+      "serversCount": 0,
+      "delayedStart": false,
+      "canControlRampup": false,
+      "targetThreads": 0,
+      "executionType": "taurusCloud",
+      "scriptType": "taurus",
+      "iterations": 1,
+      "filename": "blazemeter_functional_script.yaml",
+      "locations": [
+        {
+          "locationId": "harbor-58d3b97ff132adc0347b23c6",
+          "weight": 1,
+          "concurrency": 1
+        }
+      ],
+      "scenarios": [
+        "My Scenario"
+      ],
+      "scenariosIds": [
+        "ddb65f2decf6f3e8690f70861bbc9c995d472a32a3d36b1189f62ce27f040976"
+      ],
+      "isDebugRun": false,
+      "testMode": "http",
+      "plugins": {
+        "functionalExecution": {
+          "enabled": true
+        }
+      }
+    },
+    "engineHealth": [
+      {
+        "fileName": "r-v4-5e85277fd8596-0-c.monitoring.json"
+      }
+    ],
+    "totalThresholds": 0,
+    "failedThresholds": 0,
+    "dataUrl": "https://a.blazemeter.com/api/latest/sessions/r-v4-5e85277fd8596/reports",
+    "features": [
+      "hasMonitoringData"
+    ]
+  },
+  "request_id": "5e8536179a84f"
+}

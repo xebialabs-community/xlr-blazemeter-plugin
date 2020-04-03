@@ -1,0 +1,99 @@
+{
+  "api_version": 4,
+  "error": null,
+  "result": {
+    "id": 27081107,
+    "name": "March_31_3:18 PM - API Functional Test",
+    "userId": 898630,
+    "publicToken": null,
+    "ended": null,
+    "lastUpdate": null,
+    "delayedStartReady": false,
+    "runnerUserId": 898630,
+    "charges": [],
+    "terminateWorkersExecuted": false,
+    "usage": null,
+    "maxUsers": null,
+    "hasData": null,
+    "type": null,
+    "passed": null,
+    "canControlRampup": null,
+    "targetThreads": null,
+    "parallelTestsInWorkspace": 1,
+    "parallelTestsInAccount": 1,
+    "isSandbox": null,
+    "isPrivateData": false,
+    "executionMode": "functional",
+    "creatorClientId": "gui",
+    "executorClientId": "api",
+    "importedAt": null,
+    "secondsPerLabelDoc": 60,
+    "taurusRemoteControlProperties": null,
+    "labelsCollectionSuffix": "_17_12",
+    "locations": [
+      "harbor-58d3b97ff132adc0347b23c6"
+    ],
+    "scenariosMapping": [
+      {
+        "id": "d344b660a0e26a8a2001c9cf8bfa7043547429f7076ed6ede15eed9eeff175fe",
+        "name": "My Scenario",
+        "test": "March_31_3:18 PM - API Functional Test",
+        "isEndUserExperience": false
+      }
+    ],
+    "isDebugRun": false,
+    "executions": [
+      {
+        "concurrency": 1,
+        "holdFor": "1200s",
+        "iterations": 1,
+        "locations": {
+          "harbor-58d3b97ff132adc0347b23c6": 1
+        },
+        "locationsWeighted": true,
+        "scenario": "My Scenario"
+      }
+    ],
+    "concurrency": 1,
+    "useV4Pipeline": false,
+    "terminatedAt": null,
+    "shutdownAt": null,
+    "jupyterToken": null,
+    "jupyterHeartbeat": null,
+    "jupyterHost": null,
+    "jupyterPort": null,
+    "jupyterNotebook": null,
+    "v4IndexerCollection": "{\"execution\":[1],\"execution:1\":[\"r-v4-5e83c504df4a3\"],\"session:1\":[\"r-v4-5e83c504df4a3\"],\"location:1\":[\"harbor-58d3b97ff132adc0347b23c6\"]}",
+    "buildId": null,
+    "isSelenium": false,
+    "isExternal": null,
+    "rpsCompatible": false,
+    "remoteControlCompatible": false,
+    "hasMonitoringData": null,
+    "shouldSendReportEmail": false,
+    "shouldUseDaggerReport": null,
+    "hasDaggerData": false,
+    "kinesisStream": "prod-blue_v4pipeline_input",
+    "useJetlag": false,
+    "properties": null,
+    "jetpackLabels": null,
+    "dependencies": null,
+    "env": "https://a.blazemeter.com",
+    "reportUrl": null,
+    "created": 1585693956,
+    "updated": 1585693957,
+    "note": null,
+    "testCollectionId": null,
+    "testId": 7869157,
+    "projectId": 564822,
+    "scheduleHistoryRecordId": null,
+    "jupyterShipId": null,
+    "sessionsId": [
+      "r-v4-5e83c504df4a3"
+    ],
+    "functionalSummary": null,
+    "gridSummary": null,
+    "testSuiteSummary": null
+  },
+  "request_id": "5e83c50498fa0"
+}
