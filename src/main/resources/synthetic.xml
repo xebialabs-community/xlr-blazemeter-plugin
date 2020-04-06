@@ -40,6 +40,7 @@
         <property name="note" category="input" required="false" label="Note" description="A note to describe this test run" />
         <property name="pollingInterval" category="input" default="30" required="true" kind="integer"
             description="Polling interval in seconds to check task status" />
+        <property description="Variable to assign test result." name="testResult" label="Test Result" required="false" category="output"/>
     </type>
 
     <!-- Add test data -->
