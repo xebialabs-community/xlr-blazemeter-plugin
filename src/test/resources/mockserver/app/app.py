@@ -74,7 +74,7 @@ def get_token_auth_header():
 #################
 # Mock Blazemeter Functions
 #################
-@app.route('/api/v4/tests/<testId>/start')
+@app.route('/api/v4/tests/<testId>/start', methods=['POST'])
 @requires_auth
 def startTest(testId):
     return getFile("runTest-%s.json" % testId, 202)
@@ -84,9 +84,9 @@ def startTest(testId):
 def getSession(sessionId):
     return getFile("getSession-%s.json" % sessionId, 200)
 
-@app.route('/api/v4/masters/<masterId>')
+@app.route('/api/v4/masters/<masterId>', methods=['GET', 'PATCH'])
 @requires_auth
-def masters(masterId, methods=['GET', 'PATCH']):
+def masters(masterId):
     if request.method == 'GET':
         return getFile("getMasters-%s.json" % masterId)
     return getFile("updateMasters-%s.json" % masterId)
@@ -98,8 +98,14 @@ def getStatus(sessionId):
 
 @app.route('/api/v4/accounts')
 @requires_auth
-def accounts(testId):
+def accounts():
     return getFile("accounts.json")
+
+# This is used for the 'test connection' function
+@app.route('/api/v4/user')
+@requires_auth
+def getUser():
+    return getFile("userAdmin.json")
 
 #################
 # Utility Functions

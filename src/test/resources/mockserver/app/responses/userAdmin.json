@@ -1,0 +1,67 @@
+{
+    "api_version": 4,
+    "error": null,
+    "result": {
+      "id": 898630,
+      "email": "admin@bogus.fake",
+      "passwordUpdateTime": 1585617018,
+      "access": 1586200637,
+      "login": 1585617038,
+      "firstName": "Admin",
+      "lastName": "Administrator",
+      "timezone": 0,
+      "enabled": true,
+      "roles": [
+        "user",
+        "new-billing",
+        "authenticated"
+      ],
+      "maxApiKeyExpiry": 3650,
+      "keycloakGoogleRegister": false,
+      "created": 1585617018,
+      "updated": 1585617148,
+      "elev_io_user_hash": "nof4f63e022339cc304bc7cnonf8121997ad3f0nonoa76a47b3bb37b427147no",
+      "defaultProject": {
+        "accountId": 555445,
+        "accountName": "Default Account",
+        "workspaceName": "Default workspace",
+        "id": 555822,
+        "name": "Default project",
+        "userId": null,
+        "description": null,
+        "underMigration": null,
+        "created": 1585617024,
+        "updated": 1585617024,
+        "organizationId": null,
+        "workspaceId": 467919
+      },
+      "defaultProjectId": 555822,
+      "displayName": "Admin Administrator",
+      "features": [],
+      "mail": "admin@bogus.fake",
+      "name": "Admin",
+      "preferences": {
+        "id": "no82988ef09nonoea93aee14",
+        "userId": 898630,
+        "activePlatform": "functional",
+        "activeProjectId": 555822,
+        "activeOrganizationId": 555919,
+        "activeWorkspaceId": 555919,
+        "activeAccountId": 555445,
+        "aggregateReportFields": [
+          "labelName",
+          "samples",
+          "avgResponseTime",
+          "90line",
+          "95line",
+          "99line",
+          "minResponseTime",
+          "maxResponseTime",
+          "avgBytes",
+          "avgThroughput",
+          "errorsRate"
+        ]
+      }
+    },
+    "request_id": "5e8b80431a193"
+  }
